@@ -1,19 +1,10 @@
-name: Open Issue
+name: Comment on Open Issue
 
-on:
-  workflow_dispatch:
-  schedule:
-    - cron: '0 0 * * 1'  # Runs every Monday at midnight UTC
-
-permissions:
-  issues: write
+on: issue_comment
 
 jobs:
-  on: issue_comment
-  
-  jobs:
-    echo-body:
-      runs-on: ubuntu-latest
-      steps:
-        - run: |
-            echo '${{ github.event.comment.body }}'
+  echo-body:
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          echo '${{ github.event.comment.body }}'
